@@ -9,12 +9,11 @@
         <div class="left-card">
             <div class="product-card">
                 <img class="product-picture" src="https://picsum.photos/200/300">
-
             </div>
         </div>
         <div class="center-card">
             <div class="title">
-                <h2>Titre produit</h2>
+                <h2>Titre du produit</h2>
                 <p>Description du produit</p>
             </div>
         </div>
@@ -53,12 +52,33 @@
 </template>
 
 <script>
+import productService from "../services/productService.js"
 export default {
   data() {
-    return {};
-  },   
+    return {
+      productList: [],
+    };
+  },
   
-}
+  methods: {
+    loadProducts() {
+      productService
+        .getAllProducts()
+        .then((response) => {
+          this.ProductList = response.data;
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    
+  },  
+  mounted() {
+    //loading from API
+    this.loadProducts();
+  },
+};
 </script>
 
 <style lang="scss" scoped>

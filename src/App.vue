@@ -1,11 +1,15 @@
 <template>
-  <!-- <Header></Header> -->
+  <Header></Header>
   <ProductList></ProductList>
+  
+
+  <!-- <Cart></Cart> -->
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import ProductList from "./components/ProductList.vue";
+import Cart from "./components/Cart.vue"
 
 
 export default {
@@ -16,6 +20,7 @@ export default {
   components: {
     Header,  
     ProductList,  
+    Cart
     
   },
 }
